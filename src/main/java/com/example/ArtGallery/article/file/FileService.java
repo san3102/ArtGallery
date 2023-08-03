@@ -40,6 +40,12 @@ public class FileService {
             String fileName = uploadFile.getOriginalFilename();
             String contentType = uploadFile.getContentType();
 
+            // 이미지 파일인지 확인
+            if (!contentType.startsWith("image/")) {
+                throw new IllegalArgumentException("Only image files are allowed.");
+            }
+
+
             FileEntity fileEntity = new FileEntity(uuid, fileName, contentType, filePath);
 
             String diFileName = filePath + File.separator + uuid + "_" + fileName;
@@ -72,7 +78,8 @@ public class FileService {
         FileEntity fileEntity = new FileEntity();
         fileEntity.setUuid(uuid);
         fileEntity.setFileName("fileName.jpg");
-        fileEntity.setFilePath("/home/ubuntu/ArtGallery/C:/IT/DB/" + uuid + "_fileName.jpg");
+//        fileEntity.setFilePath("/home/ubuntu/ArtGallery/C:/IT/DB/" + uuid + "_fileName.jpg");
+        fileEntity.setFilePath("D:/springBoot/testDB/" + uuid + "_fileName.jpg");
 
         return fileEntity;
     }
