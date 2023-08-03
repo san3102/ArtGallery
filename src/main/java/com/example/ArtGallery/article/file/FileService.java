@@ -72,7 +72,7 @@ public class FileService {
         FileEntity fileEntity = new FileEntity();
         fileEntity.setUuid(uuid);
         fileEntity.setFileName("fileName.jpg");
-        fileEntity.setFilePath("C:/IT/DB/" + uuid + "_fileName.jpg");
+        fileEntity.setFilePath("/home/ubuntu/ArtGallery/C:/IT/DB/" + uuid + "_fileName.jpg");
 
         return fileEntity;
     }
