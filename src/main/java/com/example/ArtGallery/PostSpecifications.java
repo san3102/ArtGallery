@@ -10,11 +10,9 @@ import java.util.List;
 
 public class PostSpecifications {
 
-
-
     // Specification : Jpa에서 제공하는 검색기능을 구현하기 위한 인터페이스
-
     // 제목, 내용, 작성자 이름, 해시태그를 포함한 검색결과
+    // keyword : 템플릿 Topview(네비게이션 바)에 포함되어있는 Form 내부의 input값
     public static Specification<PostEntity> searchAllWithHashtag(String keyword) {
         return new Specification<>() {
             @Override
@@ -29,6 +27,7 @@ public class PostSpecifications {
     }
 
     // 해시태그 검색결과
+    // hashtagName : searchAllWithHashtag 메서드의 keyword 값
     public static Specification<PostEntity> hasHashtag(String hashtagName){
         return new Specification<PostEntity>() {
             @Override
@@ -40,6 +39,7 @@ public class PostSpecifications {
     }
 
     // 제목, 내용, 작성자 이름을 포함한 검색결과
+    // keyword : searchAllWithHashtag 메서드의 keyword 값
     public static Specification<PostEntity> searchAll(String keyword) {
         return new Specification<>() {
             @Override
